@@ -4,15 +4,17 @@ import Calculator from './components/calculator/Calculator'
 import TimeAndDate from './components/date/Date'
 import Timer from './components/timer/Timer'
 import Weather from './components/weather/Weather'
+import DarkMode from './components/dark-mode/DarkMode'
 
-const tabs = new Tabs;
-const calc = new Calculator;
-const date = new TimeAndDate
-const timer = new Timer
-const weather = new Weather
+const components = {
+  'tabs': new Tabs,
+  'calculator': new Calculator,
+  'date': new TimeAndDate,
+  'timer': new Timer,
+  'weather': new Weather,
+  'darkMode': new DarkMode,
+}
 
-tabs.onClick();
-calc.run()
-date.setDate()
-timer.init()
-weather.init()
+for (let key in components) {
+  components[key].init()
+}

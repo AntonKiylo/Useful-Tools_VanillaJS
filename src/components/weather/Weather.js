@@ -34,7 +34,7 @@ export default class Weather {
     this.weatherTab.innerHTML = 'Please accept location request'
   }
 
-  drawWeather(data){
+  drawWeather(data) {
     this.loader.classList.add('inactive')
     this.weatherBlockTitle.innerHTML = `${data.main.temp} °C <p style="font-size: 20px">feels like ${Math.round(data.main.feels_like)} °C</p> <img src="http://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`
     this.weatherBlockState.innerHTML = `${data.weather[0]["description"][0].toUpperCase()}${data.weather[0]["description"].slice(1)}`

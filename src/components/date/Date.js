@@ -5,7 +5,7 @@ export default class myDate {
   timeValue = document.querySelector('.date__time-value');
   dateValue = document.querySelector('.date__date-value');
 
-  setDate() {
+  init() {
     const daysList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Saturday'];
     const monthesList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -31,7 +31,7 @@ export default class myDate {
     this.timeValue.innerHTML = `${hours} : ${minutes} : ${seconds}`
     this.dateValue.innerHTML = `${daysList[day]}, ${monthesList[month]} ${date}, ${year}`
 
-    setTimeout(this.setDate.bind(this), 1000)
+    setTimeout(this.init.bind(this), 1000)
   }
 
 }
