@@ -18,7 +18,7 @@ export default class Weather {
   }
 
   success(position) {
-    const apiURL = 'http://api.openweathermap.org/data/2.5'
+    const apiURL = 'https://api.openweathermap.org/data/2.5'
     const apiKey = "00bfb1934a8e8968b9f6660249c58bce"
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
