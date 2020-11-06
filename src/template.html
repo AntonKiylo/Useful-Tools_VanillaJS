@@ -7,9 +7,83 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <title><%= htmlWebpackPlugin.options.title %></title>
+  <style>
+    .preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: #e0e0e0;
+      z-index: 1001;
+    }
+
+    .preloader__row {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: 70px;
+      height: 70px;
+      margin-top: -35px;
+      margin-left: -35px;
+      text-align: center;
+      animation: preloader-rotate 2s infinite linear;
+    }
+
+    .preloader__item {
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      background-color: #337ab7;
+      border-radius: 100%;
+      width: 35px;
+      height: 35px;
+      animation: preloader-bounce 2s infinite ease-in-out;
+    }
+
+    .preloader__item:last-child {
+      top: auto;
+      bottom: 0;
+      animation-delay: -1s;
+    }
+
+    @keyframes preloader-rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes preloader-bounce {
+
+      0%,
+      100% {
+        transform: scale(0);
+      }
+
+      50% {
+        transform: scale(1);
+      }
+    }
+
+    .loaded_hiding .preloader {
+      transition: 0.3s opacity;
+      opacity: 0;
+    }
+
+    .loaded .preloader {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
+
+  <div class="preloader">
+    <div class="preloader__row">
+      <div class="preloader__item"></div>
+      <div class="preloader__item"></div>
+    </div>
+  </div>
 
   <!-- Header -->
 
@@ -69,8 +143,8 @@
     <div id="tab-link-3" class="tab__content">
       <div class="calculator">
         <div class="calculator__output">
-            <div data-previous-operand class="calculator__previous-operand"></div>
-            <div data-current-operand class="calculator__current-operand"></div>
+          <div data-previous-operand class="calculator__previous-operand"></div>
+          <div data-current-operand class="calculator__current-operand"></div>
         </div>
         <button data-clear>AC</button>
         <button data-delete>DEL</button>
@@ -98,12 +172,25 @@
         <p class="weather-block__state"></p>
         <p class="weather-block__wind"></p>
       </div>
-      <div class="lds-spinner inactive"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="lds-spinner inactive">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   </main>
 
   <!-- Modals -->
-  
+
   <div class="timer-modal">
     <div class="timer-modal__dialog">
       <div class="timer-modal__header">
@@ -122,7 +209,7 @@
       </form>
     </div>
   </div>
-  
+
   <div class="end-timer-modal">
     <div class="end-timer-modal__dialog">
       <div class="end-timer-modal__header">
@@ -140,7 +227,7 @@
   <!-- Audio -->
 
   <audio loop="true"></audio>
-  
+
 </body>
 
 </html>

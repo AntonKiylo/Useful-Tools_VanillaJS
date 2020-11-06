@@ -6,15 +6,24 @@ import Timer from './components/timer/Timer'
 import Weather from './components/weather/Weather'
 import DarkMode from './components/dark-mode/DarkMode'
 
-const components = {
-  'tabs': new Tabs,
-  'calculator': new Calculator,
-  'date': new TimeAndDate,
-  'timer': new Timer,
-  'weather': new Weather,
-  'darkMode': new DarkMode,
-}
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded_hiding');
+  window.setTimeout(function () {
+    document.body.classList.add('loaded');
+    document.querySelector('.preloader').remove()
+  }, 500);
 
-for (let key in components) {
-  components[key].init()
-}
+  const components = {
+    'tabs': new Tabs,
+    'calculator': new Calculator,
+    'date': new TimeAndDate,
+    'timer': new Timer,
+    'weather': new Weather,
+    'darkMode': new DarkMode,
+  }
+
+  for (let key in components) {
+    components[key].init()
+  }
+
+})
